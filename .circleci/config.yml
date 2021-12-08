@@ -3,13 +3,6 @@
 # Check https://circleci.com/docs/2.0/language-clojure/ for more details
 #
 version: 2.1
-commands:
-  setup-docker-buildx:
-    steps:
-      - run:
-          name: Setup Docker buildx
-          command: |
-            docker buildx create --use
 jobs:
   jvm:
     docker:
@@ -476,7 +469,6 @@ jobs:
       - run:
           name: List /tmp/release for debugging
           command: ls -lah /tmp/release
-      - setup-docker-buildx
       - run:
           name: Build Docker image
           environment:
