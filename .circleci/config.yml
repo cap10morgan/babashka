@@ -474,6 +474,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: /tmp
+      - run:
+          name: List /tmp/release for debugging
+          command: ls -lah /tmp/release
       - setup-docker-buildx
       - run:
           name: Build Docker image
