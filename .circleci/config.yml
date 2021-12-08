@@ -261,6 +261,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            rm -rf ~/.gitconfig
             script/test
             script/run_lib_tests
       - run:
