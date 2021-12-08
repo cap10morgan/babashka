@@ -3,6 +3,13 @@
 # Check https://circleci.com/docs/2.0/language-clojure/ for more details
 #
 version: 2.1
+commands:
+  setup-docker-buildx:
+    steps:
+      - run:
+          name: Setup Docker buildx
+          command: |
+            docker buildx create --use
 jobs:
   jvm:
     docker:
@@ -481,7 +488,7 @@ workflows:
       - jvm
       - linux
       - linux-static
-      - mac
+      # - mac
       - linux-aarch64
       - linux-aarch64-static
       - deploy:
@@ -491,7 +498,7 @@ workflows:
           requires:
             - jvm
             - linux
-            - mac
+            # - mac
       - docker:
           filters:
             branches:
