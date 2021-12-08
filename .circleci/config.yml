@@ -38,6 +38,7 @@ jobs:
       - run:
           name: Run JVM tests
           command: |
+            rm -rf ~/.gitconfig
             export BABASHKA_FEATURE_JDBC=true
             export BABASHKA_FEATURE_POSTGRESQL=true
             script/test
@@ -114,6 +115,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            rm -rf ~/.gitconfig
             script/test
             script/run_lib_tests
       - run:
@@ -193,6 +195,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            rm -rf ~/.gitconfig
             script/test
             script/run_lib_tests
       - run:
@@ -340,6 +343,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            rm -rf ~/.gitconfig
             script/test
             script/run_lib_tests
       - run:
@@ -405,6 +409,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            rm -rf ~/.gitconfig
             export PATH=$GRAALVM_HOME/bin:$PATH
             script/test
             script/run_lib_tests
